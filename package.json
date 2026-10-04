@@ -1,0 +1,41 @@
+{
+  "name": "dsh-deepseek-server-status",
+  "version": "1.0.0",
+  "description": "DeepSeek Harness plugin: real-time service status.",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "status",
+    "status-page",
+    "deepseek",
+    "monitor"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "cordis.patch.yml"
+  ],
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --experimental-vm-modules --test",
+    "check": "node --check lib/index.js && node --check lib/client.js && node --check lib/client.css.js && node --check lib/client.i18n.js && node --check lib/parser.js && npm test",
+    "prepack": "npm run check"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  }
+}

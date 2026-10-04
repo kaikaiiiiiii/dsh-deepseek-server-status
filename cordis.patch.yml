@@ -1,0 +1,4 @@
+# 将本插件插入宿主配置。插件不暴露配置项，抓取地址与周期都在代码里固定。
+- insert:
+    - id: deepseek-server-status
+      name: 'dsh-deepseek-server-status'
